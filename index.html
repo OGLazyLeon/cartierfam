@@ -4,84 +4,98 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cartier Family</title>
-  
-  <!-- SEO + Social Sharing -->
-  <meta name="description" content="CartierFamily.com — Legacy. Loyalty. Lifestyle. A premium domain now available on Sedo.">
-  <meta property="og:title" content="Cartier Family">
-  <meta property="og:description" content="Legacy. Loyalty. Lifestyle. A premium domain now available on Sedo.">
-  <meta property="og:url" content="https://cartierfamily.com">
-  <meta property="og:type" content="website">
-  
   <style>
-    body, html {
+    html, body {
       margin: 0;
       padding: 0;
-      width: 100%;
       height: 100%;
       font-family: 'Helvetica Neue', sans-serif;
-      background-color: white;
-      background-image: radial-gradient(#ff0000 1px, transparent 1px), radial-gradient(#ff0000 1px, transparent 1px);
-      background-size: 40px 40px;
-      background-position: 0 0, 20px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background-color: #ff0000;
+      overflow: hidden;
+    }
+
+    /* CF Background */
+    .cf-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><text x="10" y="50" font-size="30" fill="white" font-family="Helvetica Neue, sans-serif">CF</text></svg>');
+      background-repeat: repeat;
+      background-size: 100px 100px;
+      opacity: 0;
+      animation: cfFadeIn 1s ease-in-out forwards, cfDim 1s ease-in-out forwards;
+      animation-delay: 0s, 2.5s;
+      z-index: 0;
+    }
+
+    @keyframes cfFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes cfDim {
+      from { opacity: 1; }
+      to { opacity: 0.2; }
     }
 
     .overlay {
-      background: rgba(255, 255, 255, 0.9);
-      padding: 60px 40px;
-      border-radius: 16px;
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
-      max-width: 600px;
+    }
+
+    .fade-block {
+      background-color: #ff0000;
+      padding: 20px 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      animation: fadeTextIn 1s ease-in-out forwards;
+      animation-delay: 1s;
+    }
+
+    @keyframes fadeTextIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     .logo {
-      font-family: 'Georgia', serif;
       font-size: 64px;
-      color: #d10000;
-      font-weight: bold;
+      font-weight: 700;
+      color: white;
+      padding: 16px 32px;
+      border-bottom: 3px solid white;
+      margin-bottom: 10px;
+      text-transform: uppercase;
       letter-spacing: 3px;
     }
 
     .tagline {
-      margin-top: 10px;
-      font-size: 20px;
-      color: #444;
-      font-style: italic;
-    }
-
-    .btn-enter {
-      margin-top: 30px;
-      padding: 12px 28px;
-      background-color: #ff0000;
+      font-size: 18px;
       color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .btn-enter:hover {
-      background-color: #c00000;
-    }
-
-    @media (max-width: 480px) {
-      .logo {
-        font-size: 48px;
-      }
+      font-style: italic;
+      margin-top: 5px;
     }
   </style>
 </head>
 <body>
+  <div class="cf-background"></div>
+
   <div class="overlay">
-    <div class="logo">Cartier Family</div>
-    <div class="tagline">Legacy. Loyalty. Lifestyle.</div>
-    <a class="btn-enter" href="https://sedo.com/search/details/?domain=cartierfamily.com" target="_blank" rel="noopener noreferrer">Available on Sedo</a>
+    <div class="fade-block">
+      <div class="logo">Cartier Family</div>
+      <div class="tagline">Loyalty Lifestyle Legacy</div>
+    </div>
   </div>
 </body>
 </html>
